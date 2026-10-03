@@ -1,0 +1,2 @@
+1. añadir en registrar.php, que muestre un md5(fechaActual), que si hace click en el <a href></a> para desbloquear usuario bloqueo=0;
+2. en login primero validar correo, si existe recibir el estado de bloqueo, si bloqueado impedir acceder, recibir el numero de intentos para asi si falla la contraseña sumar 1 en el numero de intentos y si es 3, entonces convertir en 0 pero bloquear usuario.

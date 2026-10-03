@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>REGISTRO COMIC</title>
+    <link rel="stylesheet" href="style_ejercicio1.css">
+</head>
+<body>
+    <div class="contenedor">
+        
+        <!-- Parte izquierda: Información -->
+        <div class="info">
+            <h1 id="titulo">BIENVENIDO A LA COMIC COM DE TREBUJENA</h1>
+            <h3 id="descripcion">Festival del friki 2026, ya no se que mas poner en la descripción.</h3>
+        </div>
+
+        <!-- Parte derecha: Formulario de registro -->
+        <div class="registro">
+            <form action="registrar.php" method="post">
+                
+                <div class="datos">
+                    <h2>Correo electronico:</h2>
+                    <input type="email" name="email" required>
+                    
+                    <h2>Contraseña:</h2>
+                    <input type="password" name="password" required>
+                    
+                    <h2>Nombre:</h2>
+                    <input type="text" name="nombre" required>
+                </div>
+
+                <div class="apellidos">
+                    <div class="apellido1">
+                        <h2>1º Apellido:</h2>
+                        <input type="text" name="apellido1" required>
+                    </div>
+                    <div class="apellido2">
+                        <h2>2º Apellido:</h2>
+                        <input type="text" name="apellido2" required>
+                    </div>
+                </div>
+
+                <div class="terminos">
+                    <input type="checkbox" name="condiciones" id="condiciones" required>
+                    <label for="condiciones"><h3>Terminos y condiciones</h3></label>
+                </div>
+
+                <input type="submit" value="REGISTRAR" id="enviar">
+                
+            </form>
+        </div>
+
+    </div>
+
+    <a href="inicio.html" class="boton-inicio">⬅ VOLVER AL INICIO</a>
+</body>
+
+</html>

@@ -1,0 +1,236 @@
+/* =========================================
+   RESETEO Y CENTRADO DEL BODY
+   ========================================= */
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background: rgb(199, 199, 203);
+    display: flex;
+    align-items: center;      /* Centra verticalmente en la pantalla */
+    justify-content: center;  /* Centra horizontalmente en la pantalla */
+}
+
+/* =========================================
+   NUEVO MENÚ INICIAL (SELECCIÓN)
+   ========================================= */
+.contenedorInicial {
+    width: 90%;
+    max-width: 450px;
+    padding: 50px 30px;
+    border: solid 5px rgb(13, 32, 51);
+    border-radius: 25px;
+    background: rgb(148, 158, 206); /* Fondo lila */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 25px; /* Espacio entre los botones */
+    box-sizing: border-box;
+    text-align: center;
+}
+
+.boton {
+    text-decoration: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 200px;
+    height: 50px;
+    background-color: rgb(95, 95, 137);
+    color: white;
+    font-size: 16px;
+    font-weight: bold;
+    border-radius: 25px;
+    border: solid 2px rgb(49, 49, 80);
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.1s ease;
+}
+
+.boton:hover {
+    background-color: rgb(75, 75, 117);
+    transform: scale(1.02); /* Pequeño efecto al pasar el ratón */
+}
+
+/* =========================================
+   CONTENEDOR PRINCIPAL (LOGIN Y REGISTRO)
+   ========================================= */
+.contenedor {
+    width: 90%;
+    max-width: 1000px;
+    min-width: 700px;
+    min-height: 450px;
+    border: solid 5px rgb(13, 32, 51);
+    border-radius: 25px;
+    box-sizing: border-box;
+    display: flex;
+    align-items: stretch; /* Obliga a los paneles interiores a estirarse a lo alto */
+    background: rgb(13, 32, 51);
+    overflow: hidden; /* Recorta las esquinas de los paneles interiores */
+}
+
+/* =========================================
+   PANELES DE LA PÁGINA DE REGISTRO
+   ========================================= */
+.info {
+    width: 50%;
+    box-sizing: border-box;
+    padding: 40px;
+    background: rgb(95, 95, 137);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+#titulo {
+    color: rgb(13, 32, 51);
+    font-size: 39px;
+    margin-top: 0;
+}
+
+#descripcion {
+    color: rgb(174, 204, 234);
+}
+
+.registro {
+    background: rgb(148, 158, 206);
+    width: 50%;
+    box-sizing: border-box;
+    padding: 40px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+/* =========================================
+   PANEL DE LA PÁGINA DE LOGIN
+   ========================================= */
+.login {
+    background-color: rgb(148, 158, 206) !important;
+    width: 100%;
+    flex: 1; /* Obliga a rellenar todo el ancho disponible */
+    box-sizing: border-box;
+    padding: 40px;
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Centra el formulario */
+    justify-content: center;
+}
+
+/* Limitamos el ancho del form de login para que no se estire demasiado */
+.login form {
+    width: 100%;
+    max-width: 400px;
+}
+
+.registro form {
+    width: 100%;
+}
+
+/* =========================================
+   ESTILOS DE FORMULARIO COMUNES
+   ========================================= */
+h2 {
+    font-size: 16px;
+    text-align: left;
+    margin-bottom: 5px;
+    margin-top: 15px;
+    color: rgb(13, 32, 51);
+}
+
+/* Asegurar que las cajas contenedoras ocupan todo el ancho */
+.datos, .apellidos {
+    width: 100% !important;
+    box-sizing: border-box;
+}
+
+.apellidos {
+    display: flex;
+    justify-content: space-between;
+}
+
+.apellido1, .apellido2 {
+    width: 48% !important;
+    box-sizing: border-box;
+}
+
+/* FORZAR que todo input de texto, email o password se estire al 100% de su caja */
+input[type="text"],
+input[type="email"],
+input[type="password"] {
+    width: 100% !important; /* El !important aplasta cualquier id="inputL" que tengas por ahí */
+    height: 35px !important;
+    box-sizing: border-box !important; /* CRÍTICO: Evita que el padding sume ancho y desborde */
+    padding: 0 10px;
+    border-radius: 5px;
+    border: none;
+    margin-bottom: 10px;
+}
+
+input[type="text"]:focus,
+input[type="email"]:focus,
+input[type="password"]:focus {
+    outline: 2px solid rgb(13, 32, 51);
+}
+
+/* Términos y condiciones */
+.terminos {
+    display: flex;
+    align-items: center;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.terminos h3 {
+    font-size: 14px;
+    margin: 0 0 0 10px;
+    padding: 0;
+    color: rgb(13, 32, 51);
+    cursor: pointer;
+}
+
+/* Botón de Submit (Entrar / Registrar) */
+#enviar {
+    display: block;
+    margin: 20px auto 0;
+    width: 150px;
+    height: 40px;
+    background-color: rgb(95, 95, 137);
+    color: white;
+    font-weight: bold;
+    border-radius: 25px;
+    border: solid 2px rgb(49, 49, 80);
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+#enviar:hover {
+    background-color: rgb(75, 75, 117);
+}
+
+.boton-inicio {
+    position: absolute; /* Lo saca del flujo normal para no descolocar el centro */
+    top: 25px;
+    left: 30px;
+    text-decoration: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px 20px;
+    background-color: rgb(95, 95, 137); /* Mismo azul que los otros botones */
+    color: white;
+    font-size: 14px;
+    font-weight: bold;
+    border-radius: 25px;
+    border: solid 2px rgb(49, 49, 80);
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.1s ease;
+}
+
+.boton-inicio:hover {
+    background-color: rgb(75, 75, 117);
+    transform: scale(1.05); /* Efecto al pasar el ratón */
+}
