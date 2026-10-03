@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BUSCAR</title>
+    <style>
+        body{
+            background: rgb(225, 228, 231);
+            font-family: verdana;
+            font-size: 12px;
+        }
+        .formulario{
+            border-radius: 15px;
+            border: 2px solid rgb(12, 36, 71);
+            background: rgb(116, 142, 182);
+            width: 700px;
+            height: 100%;
+            margin: 100px auto;
+            box-sizing: border-box;
+            align-items: center;
+            padding-right: 30px;
+            padding-left: 10px;
+            padding-top: 10px;
+        }
+        .buscar, .volver{
+            border-radius: 15px;
+            border: 2px solid rgb(12, 36, 71);
+            background: rgb(216, 226, 241);
+            height: 20px;
+            width: 100px;
+            box-sizing: border-box;
+            font-size: 12px;
+            color: rgb(12, 36, 71);
+            margin: 10px;
+            margin-left: 280px;
+        }
+        h1{
+            font-size: 30px;
+            text-align: center;
+            margin-top: 30px;
+            margin-bottom: -80px;
+            color: rgb(12, 36, 71);
+            letter-spacing: 3px;
+        }
+        #apellido_1,#apellido_2{
+            width: 75%;
+            height: 20px;
+        }
+    </style>
+</head>
+<body>
+    <h1>BUSCAR CLIENTE</h1>
+    <div class="formulario">
+        <form action="buscarCliente.php" method="post">
+            PRIMER APELLIDO:
+            <input type="text" name="apellido_1" id="apellido_1" required><br><br>
+            SEGUNDO APELLIDO:
+            <input type="text" name="apellido_2" id="apellido_2" required><br><br>
+            <input type="submit" class="buscar" value="BUSCAR">
+        </form>
+        <form action="paginaInicio.html" method="post">
+            <input type="submit" class="volver" value="VOLVER">
+        </form>
+    </div>
+</body>
+</html>

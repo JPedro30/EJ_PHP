@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>INSERTAR</title>
+    <style>
+        body{
+            background: rgb(225, 228, 231);
+            font-family: verdana;
+            font-size: 12px;
+        }
+        .formulario{
+            border-radius: 15px;
+            border: 2px solid rgb(12, 36, 71);
+            background: rgb(116, 142, 182);
+            width: 700px;
+            height: 100%;
+            margin: 100px auto;
+            box-sizing: border-box;
+            align-items: center;
+            padding-right: 30px;
+            padding-left: 10px;
+            padding-top: 10px;
+        }
+        #nombre,#apellido_1,#apellido_2,#sexo,#direccion,#email,#telefono,#fecha_nacimiento,#poblacion,#provincia,#contraseña,#dni,#twitter{
+            width: 100%;
+            height: 20px;
+            margin: 5px;
+        }
+        .insertar, .volver{
+            border-radius: 15px;
+            border: 2px solid rgb(12, 36, 71);
+            background: rgb(216, 226, 241);
+            height: 20px;
+            width: 100px;
+            box-sizing: border-box;
+            font-size: 12px;
+            color: rgb(12, 36, 71);
+            margin: 10px;
+            margin-left: 280px;
+        }
+        h1{
+            font-size: 30px;
+            text-align: center;
+            margin-top: 30px;
+            margin-bottom: -80px;
+            color: rgb(12, 36, 71);
+            letter-spacing: 3px;
+        }
+    </style>
+</head>
+<body>
+    <h1>INSERTAR CLIENTE</h1>
+    <div class="formulario">
+        <form action="insertarCliente.php" method="post">
+            NOMBRE:
+            <input placeholder="nombre" type="text" name="nombre" id="nombre" pattern="[a-zA-ZáéíóúÁÉÍÓÚñÑüÜ ]+" required><br><br>
+            PRIMER APELLIDO:
+            <input placeholder="1º apellido" type="text" name="apellido_1" id="apellido_1" pattern="[a-zA-ZáéíóúÁÉÍÓÚñÑüÜ ]+" required><br><br>
+            SEGUNDO APELLIDO:
+            <input placeholder="2º apellido" type="text" name="apellido_2" id="apellido_2" pattern="[a-zA-ZáéíóúÁÉÍÓÚñÑüÜ ]+" required><br><br>
+            SEXO:
+            <select name="sexo" id="sexo" required>
+                <option id="sexo" value="H">Hombre</option>
+                <option id="sexo" value="M">Mujer</option>
+            </select><br><br>
+            DIRECCION:
+            <input placeholder="Calle..." type="text" name="direccion" id="direccion" pattern="[a-zA-ZáéíóúÁÉÍÓÚñÑüÜ\d- ]+" required><br><br>
+            CORREO:
+            <input placeholder="ejemplo@prueba.com" type="email" name="email" id="email" pattern="[a-zA-ZáéíóúÁÉÍÓÚñÑüÜ\d]+@[a-zA-ZáéíóúÁÉÍÓÚñÑüÜ\d]+\.[a-zA-ZáéíóúÁÉÍÓÚñÑüÜ\d]{2,4}" required><br><br>
+            TELEFONO:
+            <input placeholder="EJ: 000000000" type="number" name="telefono" id="telefono" pattern="\d{9}" required><br><br>
+            FECHA NACIMIENTO:
+            <input type="date" name="fecha_nacimiento" id="fecha_nacimiento" required><br><br>
+            POBLACION:
+            <input placeholder="Poblacion" type="text" name="poblacion" id="poblacion" pattern="[a-zA-ZáéíóúÁÉÍÓÚñÑüÜ ]+" required><br><br>
+            PROVINCIA:
+            <input placeholder="Provincia" type="text" name="provincia" id="provincia" pattern="[a-zA-ZáéíóúÁÉÍÓÚñÑüÜ -]+" required><br><br>
+            CONTRASEÑA:
+            <input placeholder="Contraseña" type="password" name="contraseña" id="contraseña" required><br><br>
+            DNI:
+            <input placeholder="EJ: 00000000A" type="text" name="dni" id="dni" pattern="\d{8}[TRWAGMYFPDXBNJZSQVHLCKEtrwagmyfpdxbnjzsqvhlcke]" required><br><br>
+            CUENTA TWITTER:<BR>
+            <input placeholder="@usuario" type="text" name="twitter" id="twitter" pattern="@[a-zA-Z]{1}[a-zA-Z0-9_]{3,14}" required><br><br>
+            <input type="submit" class="insertar" value="INSERTAR">
+        </form>
+        <form action="paginaInicio.html" method="post">
+            <input type="submit" class="volver" value="VOLVER">
+        </form>
+    </div>
+</body>
+</html>
