@@ -12,7 +12,6 @@
     <?php
     session_start();
 
-    $usuarioCorrecto = false;
     $todoCorrecto = false;
     $mensajeError = "Email o contraseña incorrectos.";
 
@@ -37,7 +36,6 @@
                 $resultado = mysqli_stmt_get_result($statement);
                 
                 if ($fila = mysqli_fetch_assoc($resultado)) {
-                    $usuarioCorrecto = true;
                     
                     $passBD = $fila['password_cifrada'];
                     $cuentaBloqueada = $fila['bloqueado'];
