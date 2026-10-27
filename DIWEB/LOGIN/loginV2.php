@@ -23,7 +23,7 @@
             die("Error de conexion: " . mysqli_connect_error());
         }
 
-        $sql = "SELECT email, password_cifrada, bloqueado, fecha_bloqueo, intentos_inicio, fecha_ultimo_intento FROM usuarios WHERE email = ?";
+        $sql = "SELECT email, password_cifrada, bloqueado, fecha_bloqueo, intentos_inicio, fecha_ultimo_intento, tipoUsuario FROM usuarios WHERE email = ?";
         $statement = mysqli_prepare($conexion, $sql);
 
         $password = md5($_POST['password']); 
@@ -44,6 +44,19 @@
                     $tiempoActual = time(); // saco fecha actual
                     $tiempoBloqueo = $fila['fecha_bloqueo'] ? strtotime($fila['fecha_bloqueo']) : 0; // comprueba si existe fecha de bloqueo si existe la convierto a segundos si no pongo la variable a 0
                     $tiempoUltimoIntento = $fila['fecha_ultimo_intento'] ? strtotime($fila['fecha_ultimo_intento']) : 0;
+                    $tipoUsuario = $fila['tipoUsuario'];
+
+                    switch ($tipoUsuario) {
+                        case 0:
+                            $tipoUsuario = "ADMIN";
+                            break;
+                        case 1:
+                            $tipoUsuario = "CLIENTE";
+                            break;
+                        case 2:
+                            $tipoUsuario = "TRABAJADOR";
+                            break;
+                    }
 
                     // 1. VALIDACION DE CUENTA BLOQUEADA Y TIEMPO DE BLOQUEO
                     if ($cuentaBloqueada && $tiempoActual > strtotime('+2 minutes', $tiempoBloqueo)) {
@@ -61,6 +74,7 @@
                             $stmtUpdate = mysqli_prepare($conexion, $sqlUpdate);
                             mysqli_stmt_bind_param($stmtUpdate, "s", $email);
                             mysqli_stmt_execute($stmtUpdate);
+                            
                             
                         } else {
                             // SI CONTRASEÑA INCORRECTA
@@ -95,9 +109,12 @@
         // SALIDA DE DATOS
         if ($todoCorrecto) {
             $_SESSION['email'] = $email;
+            $_SESSION['tipoUsuario'] = $tipoUsuario;
             print("<h1><span>✓</span> Email y contraseña válido, accediendo a la web.</h1>");
             print("<a href='inicio.html' class='boton-inicio'>⬅ VOLVER AL INICIO</a>");
             print("<a href='comprobarSesion.php' style='position: absolute; bottom: 25px; right: 30px;'>Comprobar Session</a>");
+            print("<a href='administrarAdmin.php' class='boton' style='position: absolute; bottom: 25px; left: 30px; text-align:center;'>ADMINISTRADOR<br>(ONLY ADMIN)</a>");
+            print("<a href='configurarPerfil.html' class='boton' style='position: absolute; top: 25px; right: 30px; text-align:center;'>CONFIGURAR PERFIL</a>");
         } else {
             print("<h1><span>X</span> $mensajeError</h1>");
             print("<a href='inicio.html' class='boton-inicio'>⬅ VOLVER AL INICIO</a>");
